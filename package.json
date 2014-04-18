@@ -1,0 +1,24 @@
+{
+  "name": "indexjs",
+  "version": "0.0.0",
+  "description": "nice index.js files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/allouis/indexjs.git"
+  },
+  "keywords": [
+    "indexjs",
+    "index.js",
+    "index"
+  ],
+  "author": "Fabien O'Carroll",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/allouis/indexjs/issues"
+  },
+  "homepage": "https://github.com/allouis/indexjs"
+}
