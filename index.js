@@ -4,12 +4,11 @@ var fs = require('fs');
 var path = require('path');
 
 function indexjs (dirname, type) {
-  return fs.readdirSync(dirname).reduce(createModuleArray(dirname));
+  return fs.readdirSync(dirname).reduce(createModuleArray(dirname), []);
 }
 
 function createModuleArray (dirname) {
-  var modules = [];
-  return function moduleArrayReduce (arr, filename) {
+  return function moduleArrayReduce (modules, filename) {
     var parts = filename.split('.');
     if (parts[0] === 'index' || parts.pop() !== 'js') {
       return modules;
