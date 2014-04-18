@@ -9,7 +9,14 @@ var outputFunctions = {
 };
 
 function indexjs (dirname, output) {
-  var createModuleOutput = outputFunctions[typeof output];
+  var type = typeof output;
+  if (type !== 'object') {
+    throw new TypeError('Invalid output type, requires Object or Array');
+  }
+  if (Array.isArray(output)) {
+    type = 'array';
+  }
+  var createModuleOutput = outputFunctions[type];
   return fs.readdirSync(dirname).reduce(createModuleOutput(dirname), output);
 }
 
