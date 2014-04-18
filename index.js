@@ -1,7 +1,6 @@
 module.exports = indexjs;
 
 var fs = require('fs');
-var path = require('path');
 
 var createModuleCreationFunction = require('./lib/createModuleFunction');
 
