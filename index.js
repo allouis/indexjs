@@ -7,10 +7,9 @@ function createModuleCreationFunction (fn) {
   return function createModuleObject (dirname) {
     return function moduleObjectReduce (modules, filename) {
       var parts = filename.split('.');
-      if (parts[0] === 'index' || parts.pop() !== 'js') {
-        return modules;
+      if (parts[0] !== 'index' && parts.pop() === 'js') {
+        fn(modules, require(path.join(dirname, filename)), parts);
       }
-      fn(modules, require(path.join(dirname, filename)), parts);
       return modules;
     };
   };
