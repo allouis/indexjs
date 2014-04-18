@@ -20,6 +20,11 @@ output can be either an array or an object, it doesn't have to be empty.
 ----- comment.js
 ----- post.js
 ----- .hiddenfile
+-- routers/
+----- index.js
+----- user.js
+----- comment.js
+----- post.js
 
 ```
 ### models/index.js
@@ -31,7 +36,16 @@ output can be either an array or an object, it doesn't have to be empty.
 
 var indexjs = require('indexjs');
 module.exports = indexjs(__dirname, {});
+```
+### routers/index.js
+```javascript
 
+/**
+ * /project/routers/index.js
+ */
+
+var indexjs = require('indexjs');
+module.exports = indexjs(__dirname, []);
 ```
 ### app.js
 ```javascript
@@ -41,9 +55,13 @@ module.exports = indexjs(__dirname, {});
  */
  
 var models = require('./models');
+var routers = require('./routers');
+routers.forEach(function(router) {
+ router(app);
+});
+
 models.user; // the equivalent of require('./models/user');
-models.comment; // the quivalent of require('./models/user');
+models.comment; // the quivalent of require('./models/comment');
 // etc..
 models['.hiddenfile']; // undefined;
-
 ```
