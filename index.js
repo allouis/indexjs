@@ -6,8 +6,12 @@ var path = require('path');
 var createModuleCreationFunction = require('./lib/createModuleFunction');
 
 var outputFunctions = {
-  array: createModuleArray,
-  object: createModuleObject
+  array: createModuleCreationFunction(function (modules, module) {
+    modules.push(module);
+  }),
+  object: createModuleCreationFunction(function (modules, module, parts) {
+    modules[parts[0]] = module;
+  })
 };
 
 function indexjs (dirname, output) {
