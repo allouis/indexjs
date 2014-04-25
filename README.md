@@ -1,4 +1,4 @@
-# indexjs
+# indexjs [![Build Status](https://travis-ci.org/allouis/indexjs.svg?branch=master)](https://travis-ci.org/allouis/indexjs)
 
 You can use indexjs to simplify the requiring of similar modules within a directory, for examples models;
 
