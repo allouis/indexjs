@@ -13,6 +13,8 @@ var outputFunctions = {
   })
 };
 
+function id(x) { return x; }
+
 function indexjs (dirname, output) {
   var type = typeof output;
   if (type !== 'object') {
