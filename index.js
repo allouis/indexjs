@@ -15,7 +15,7 @@ var outputFunctions = {
 
 function id(x) { return x; }
 
-function indexjs (dirname, output) {
+function indexjs (dirname, output, transform) {
   var type = typeof output;
   if (type !== 'object') {
     throw new TypeError('Invalid output type, requires Object or Array');
@@ -24,5 +24,5 @@ function indexjs (dirname, output) {
     type = 'array';
   }
   var createModuleOutput = outputFunctions[type];
-  return fs.readdirSync(dirname).reduce(createModuleOutput(dirname), output);
+  return fs.readdirSync(dirname).reduce(createModuleOutput(dirname, transform || id), output);
 }
