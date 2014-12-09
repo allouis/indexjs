@@ -4,9 +4,10 @@ You can use indexjs to simplify the requiring of similar modules within a direct
 
 ## API
 
-### `indexjs(directory, output)`
+### `indexjs(directory, output, [transform])`
 directory will usually be __dirname, when run from index.js of a directory.
 output can be either an array or an object, it doesn't have to be empty.
+transform is an optional function that gets called on all the required modules, the return value is used instead of the module
 
 ## Usage
 
@@ -35,7 +36,9 @@ output can be either an array or an object, it doesn't have to be empty.
  */
 
 var indexjs = require('indexjs');
-module.exports = indexjs(__dirname, {});
+module.exports = indexjs(__dirname, {}, function (model) {
+  return model.init(); // example of transform
+});
 ```
 ### routers/index.js
 ```javascript
