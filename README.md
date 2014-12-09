@@ -6,7 +6,9 @@ You can use indexjs to simplify the requiring of similar modules within a direct
 
 ### `indexjs(directory, output, [transform])`
 directory will usually be __dirname, when run from index.js of a directory.
+
 output can be either an array or an object, it doesn't have to be empty.
+
 transform is an optional function that gets called on all the required modules, the return value is used instead of the module
 
 ## Usage
