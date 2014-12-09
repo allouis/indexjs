@@ -5,11 +5,11 @@ var fs = require('fs');
 var createModuleCreationFunction = require('./lib/createModuleFunction');
 
 var outputFunctions = {
-  array: createModuleCreationFunction(function (modules, module) {
-    modules.push(module);
+  array: createModuleCreationFunction(function (output, module) {
+    output.push(module);
   }),
-  object: createModuleCreationFunction(function (modules, module, parts) {
-    modules[parts[0]] = module;
+  object: createModuleCreationFunction(function (output, module, parts) {
+    output[parts[0]] = module;
   })
 };
 
