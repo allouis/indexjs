@@ -9,7 +9,9 @@ var outputFunctions = {
     output.push(module);
   }),
   object: createModuleCreationFunction(function (output, module, parts) {
-    parts.pop()
+    if (parts.length !== 1) {
+      parts.pop();
+    }
     var name = parts.join('.');
     output[name] = module;
   })
