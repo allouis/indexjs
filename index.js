@@ -21,7 +21,7 @@ function id(x) { return x; }
 
 function indexjs (dirname, output, transform) {
   var type = typeof output;
-  if (type !== 'object') {
+  if (type !== 'object' || type !== 'function') {
     throw new TypeError('Invalid output type, requires Object or Array');
   }
   if (Array.isArray(output)) {
